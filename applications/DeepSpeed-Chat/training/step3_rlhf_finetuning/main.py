@@ -19,10 +19,6 @@ for prompt_batch in prompt_train_dataloader:
 
 import sys
 import os
-sys.path.insert(0,'/fs-computility/llm/chenyang2/DeepSpeedExamples-master/applications/DeepSpeed-Chat')
-local_env = os.environ.copy()
-local_env["PATH"]="/fs-computility/llm/shared/rl3m_env/miniconda3-py39_4/envs/llm-opus-zhaohui/bin:" + local_env["PATH"]
-os.environ.update(local_env)
 import argparse
 import random
 import time
@@ -49,16 +45,6 @@ from dschat.utils.perf import print_throughput_step3
 from deepspeed.accelerator import get_accelerator
 from dschat.utils.report_util import start_report,stop_report,reportStatistic
 
-current_library_path = os.environ.get('LIBRARY_PATH', '')
-current_c_include_path = os.environ.get('C_INCLUDE_PATH', '')
-
-# 设置新的LIBRARY_PATH和C_INCLUDE_PATH
-new_library_path = '/usr/lib/x86_64-linux-gnu:' + current_library_path
-new_c_include_path = '/usr/lib/x86_64-linux-gnu:' + current_c_include_path
-
-# 更新环境变量
-os.environ['LIBRARY_PATH'] = new_library_path
-os.environ['C_INCLUDE_PATH'] = new_c_include_path
 writer = None
 
 
