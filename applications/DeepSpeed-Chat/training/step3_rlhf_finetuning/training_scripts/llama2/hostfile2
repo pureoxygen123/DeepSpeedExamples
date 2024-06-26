@@ -1,3 +1,0 @@
-head slots=8
-worker1 slots=8
-worker2 slots=4
